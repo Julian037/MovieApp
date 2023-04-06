@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { allMovies } from '../../functions/data';
 import { Footer } from '../Footer/Footer';
 import { Navbar } from '../Navbar/Navbar';
+import MovieCategory from '../MovieCategory/MovieCategory';
 
 const Home = () => {
     const [movies, setMovies] = useState(null)
@@ -14,11 +15,10 @@ const Home = () => {
     return(
         <Fragment>
             <Navbar></Navbar>
-            {movies != null ? (
-                movies.map(movie => (
-                    <h1 key={movie.id}>{movie.title}</h1>
-                ))
-            ) : ('cargando...')}
+            <MovieCategory 
+                movies={movies}
+            />
+
             <Footer></Footer>
         </Fragment>
     )
